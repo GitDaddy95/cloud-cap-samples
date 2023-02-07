@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Capire Books </title>
+    <title>Budget Plus | Plan Creation </title>
     <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
@@ -17,7 +17,9 @@
 
 <body class="small-container", style="margin-top: 70px;">
 <div id='app'>
-
+    <div class="Budget-Title">
+        <h1>Welcome to Budget Plus</h1>
+    </div>
     <form class="user" @submit.prevent="login">
         <div v-if="user">
             <div v-if="user.tenant">Tenant: {{ user.tenant }}</div>
@@ -29,18 +31,31 @@
             <!-- <a href="/user/login()">Login</a> -->
         </div>
     </form>
-
-    <h1> Capire Books </h1>
+    <div class="plan-create">
+        <h1>Plan Creation</h1>
+        <label>Plan Name : </label>   
+        <input type="text" placeholder="Enter Plan Name" name="planname" required>  
+        <label>Plan Start Date: </label>   
+        <input type="date" placeholder="Choose Start Date" name="startdate" required>
+        <label>Plan Date Length: </label>   
+        <select>
+            <option value="0">Select Length:</option>
+            <option value="1">1 Year</option>
+            <option value="2">2 Years</option>
+            <option value="3">3 Year</option>
+          </select>
+    </div>  
+    <h1> Already have Plan </h1>
 
     <input type="text" placeholder="Search..." @input="search">
 
     <table id='books' class="hovering">
         <thead>
-            <th> Book </th>
-            <th> Author </th>
+            <th> Plan Name </th>
+            <th> Users </th>
             <th> Genre </th>
             <th> Rating </th>
-            <th> Price </th>
+            <th> Accounts </th>
         </thead>
         <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
             <td>{{ book.title }}</td>
