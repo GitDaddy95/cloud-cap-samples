@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Main Page </title>
+    <!--<link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container", style="margin-top: 70px; margin-left: 70px; margin-right: 70px;">
+<div id='app'>
+    <div class="Budget-Title">
+        <h1>Setup Dimensions</h1>
+    </div>
+
+    <div class="main-canvas">
+        
+        <div class="body-main" style="display:flex">
+            <table style="display:flex;border-style: solid;width:auto">
+
+                <tr>
+                    <td>Dimensions</td>
+  
+                    <td><Label>Active</Label></td>
+                    <td><Label> Description</Label></td>
+                </tr>
+                <tr>
+                
+                  <td>Dimension1</td>
+                  <td><label class="switch">
+              <input id="Switch 1" type="checkbox">
+              <span class="slider round"></span>
+              
+              </label></td>
+              <td><input type="text" placeholder="Description"></td>
+                </tr>
+              
+                <tr>
+                    
+                  <td>Dimension2</td>
+                  <td><label class="switch">
+              <input id="Switch 2" type="checkbox">
+              <span class="slider round"></span>
+              </label></td>
+              <td><input type="text" placeholder="Description"></td>
+                </tr>
+              
+                <tr>
+                  <td>Dimension3</td>
+                  <td><label class="switch">
+              <input id="Switch 3" type="checkbox">
+              <span class="slider round"></span>
+              </label></td>
+              <td><input type="text" placeholder="Description"></td>
+                </tr>
+              
+                <tr>
+                  <td>Dimension4</td>
+                  <td><label class="switch">
+              <input id="Switch 4" type="checkbox">
+              <span class="slider round"></span>
+              </label></td>
+              <td><input type="text" placeholder="Description"></td>
+                </tr>
+              
+                <tr>
+                  <td>Dimension5</td>
+                  <td><label class="switch">
+              <input id="Switch 5" type="checkbox">
+              <span class="slider round"></span>
+              </label></td>
+              <td><input type="text" placeholder="Description"></td>
+                </tr>
+              </table>
+
+              
+        </div>
+        <button><a href="./Cost_Centers.html">Next</a></button>
+    </div> 
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="app.js"></script>
+</html>

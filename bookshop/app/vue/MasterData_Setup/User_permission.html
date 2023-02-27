@@ -125,20 +125,6 @@
         </tr>
 
       </table>
-    <input type="text" placeholder="Search..." @input="search">
-
-    <table id='books' class="hovering">
-        <thead>
-            <th> User </th>
-            <th> Role </th>
-            <th >Action</th>
-        </thead>
-        <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
-            <td>Hein</td>
-            <td>Administrator</td>
-            <td type="button">Edit</td>
-        </tr>
-    </table>
 
     <button><a href="./User_assign.html">Save</a></button>
 

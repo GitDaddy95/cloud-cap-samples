@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Main Page </title>
+    <!--<link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container", style="margin-top: 70px; margin-left: 70px; margin-right: 70px;">
+<div id='app'>
+    <div class="Budget-Title">
+        <h1>Setup Chart of Accounts</h1>
+    </div>
+
+    <div class="main-canvas">
+        
+        <div class="body-main" style="margin-bottom: 5px;">
+            <form action="" >
+                
+                <div class="cost_center_1" style="margin-bottom: 15px;">
+                    <label style="margin-bottom: 5px;">G/L Account code: </label>   
+                    <input id="AccountCode"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Name: </label>   
+                    <input id="AccountName"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Balance: </label>   
+                    <input id="AccountBalance" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Currency: </label>   
+                    <input id="AccountCurrency" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Level: </label>   
+                    <input type="text" id="AccountLevel" name="Type" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">External Code: </label>   
+                    <input type="text" id="AccountExCode" name="date" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Postable: </label>   
+                    <input type="text" id="AccountPost" name="name" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                </div> 
+            </form>
+            <button><a href="#">Add</a></button>
+            
+        </div>
+        <div class="ald-accounts" style="display:flex;border-style: solid;width:auto">
+            <table id='account-table' class="hovering" style="border-style: solid;width:100%">
+                <thead >
+                    <th> Accounts </th>
+                    <th> Users </th>
+                    <th >Action</th>
+                </thead>
+                <tr v-for="account in list" v-bind:id="account.ID" v-on:click="inspect">
+                    <td>12345</td>
+                    <td>Hein</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                <tr v-for="account in list" v-bind:id="account.ID" v-on:click="inspect">
+                    <td>54321</td>
+                    <td>Nieh</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+        <button><a href="./Dimensions.html">Next</a></button>
+        
+    </div> 
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="app.js"></script>
+<style>
+    thead{
+        border-bottom: 4px solid #221e1e;
+    }
+    td {
+        display: table-cell;
+        vertical-align: inherit;    
+        border: 1px solid #fff;
+        text-align: center;
+    }
+</style>
+</html>
