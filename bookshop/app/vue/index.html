@@ -31,6 +31,7 @@
             <!-- <a href="/user/login()">Login</a> -->
         </div>
     </form>
+    <form action="">
     <div class="plan-create">
         <h1>Plan Creation</h1>
         <label>Plan Name : </label>   
@@ -44,7 +45,9 @@
             <option value="2">2 Years</option>
             <option value="3">3 Year</option>
           </select>
-    </div>  
+    </div> 
+    <input type="submit" value="Create">
+    </form> 
     <h1> Already have Plan </h1>
 
     <input type="text" placeholder="Search..." @input="search">
@@ -53,18 +56,19 @@
         <thead>
             <th> Plan Name </th>
             <th> Users </th>
-            <th> Genre </th>
+            
             <th> Rating </th>
-            <th> Accounts </th>
+            <th>Action</th>
         </thead>
         <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.genre.name }}</td>
+            
             <td class="rating-stars">
                 {{ ('★'.repeat(Math.round(book.rating))+'☆☆☆☆☆').slice(0,5) }} ({{ book.numberOfReviews }})
             </td>
-            <td>{{ book.currency && book.currency.symbol }} {{ book.price }}</td>
+            <td type="button">Edit</td>
+            
         </tr>
     </table>
 
@@ -77,9 +81,10 @@
         </label>
         <form @submit.prevent="submitOrder" style="float:right; display:flex; flex-direction:row-reverse">
             <input type="number" v-model="order.quantity" v-bind:class="{ failed: order.failed }" style="width:5em">
-            <input type="submit" value="Order:" class="muted-button">
+            <input type="submit" value="Next" class="muted-button">
         </form>
         <h4> {{ book.title }} </h4>
+        <p>This is the plan for ......</p>
         <p> {{ book.descr }} </p>
     </div>
     <div v-else>

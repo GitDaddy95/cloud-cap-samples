@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Plan Creation </title>
+    <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container", style="margin-top: 70px;">
+<div id='app'>
+    <div class="Budget-Title">
+        <h1>Welcome to Budget Plus</h1>
+    </div>
+    <form action="">
+    <div class="plan-create">
+        <h1>User Permission</h1>
+        <label>User : </label>   
+        <input type="text" placeholder="Hein" name="planname" required>  
+        <label>Password: </label>   
+        <input type="text" placeholder="ZXCbnm12q@1" required>
+        <label>Add User Role: </label>   
+        <select>
+            <option value="0">Normal</option>
+            <option value="1">Administrator</option>
+          </select>
+    </div> 
+    <input type="submit" value="Save">
+    </form> 
+    <h1>Viewable Components</h1>
+    <table style="width:100%">
+
+        <tr>
+          <td>Sales</td>
+          <td><label class="switch">
+      <input id="Switch 1" type="checkbox">
+      <span class="slider round"></span>
+      
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Operating Costs</td>
+          <td><label class="switch">
+      <input id="Switch 2" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Employees</td>
+          <td><label class="switch">
+      <input id="Switch 3" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Marketing</td>
+          <td><label class="switch">
+      <input id="Switch 4" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Assets</td>
+          <td><label class="switch">
+      <input id="Switch 5" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+
+      </table>
+
+      <h1>Viewable Cost Centers</h1>
+    <table style="width:100%">
+
+        <tr>
+          <td>Cost Center 1</td>
+          <td><label class="switch">
+      <input id="Switch 1" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Cost Center 2</td>
+          <td><label class="switch">
+      <input id="Switch 2" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Cost Center 3</td>
+          <td><label class="switch">
+      <input id="Switch 3" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Cost Center 4</td>
+          <td><label class="switch">
+      <input id="Switch 4" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+      
+        <tr>
+          <td>Cost Center 5</td>
+          <td><label class="switch">
+      <input id="Switch 5" type="checkbox">
+      <span class="slider round"></span>
+      </label></td>
+        </tr>
+
+      </table>
+    <input type="text" placeholder="Search..." @input="search">
+
+    <table id='books' class="hovering">
+        <thead>
+            <th> User </th>
+            <th> Role </th>
+            <th >Action</th>
+        </thead>
+        <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
+            <td>Hein</td>
+            <td>Administrator</td>
+            <td type="button">Edit</td>
+        </tr>
+    </table>
+
+    <button><a href="./User_assign.html">Save</a></button>
+
+    </div>
+
+</div>
+</body>
+
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,74 @@
+<div">
+  <h1>Sales > Sales Group 1 > Product 1 > Cost 1</h1>
+<table style="border-style: solid; text-align:center; margin-top: 20px;">
+    <tr>
+      <th>2022</th>
+      <th>January</th>
+      <th>Febuary</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+    </tr>
+    <tr>
+      <td>Income</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cost Centers</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+</table>
+<button id="loadDefault" class="Cost_default.html">Back</button>
+</div>
+<script>
+  $("#loadDefault").click(function(){
+      var theClass = this.className;
+      $("#contentArea").load("../Dynamic_Components/"+ theClass);
+  });
+</script>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
