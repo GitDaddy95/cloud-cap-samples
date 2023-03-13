@@ -20,14 +20,14 @@
 <body class="small-container", style="margin-top: 70px; margin-left: 70px; margin-right: 70px;">
 <div id='app'>
     <div class="Budget-Title">
-        <h1>Welcome to Plan Name</h1>
+        <h1>Welcome to {{ plan.title }} </h1>
     </div>
 
     <div class="main-canvas">
         <div class="head" style="display:flex;">
-            <div class="report-page" type="button" style="position: relative;border-style: solid; top:10%;left: 10%;width: 120px;height:20px;">Report</div>
-            <div class="dashboard-page" type="button"  style="position: relative;border-style: solid; top:10%;left: 10%;width: 120px;height:20px;">Dashboard</div>
-            <div class="notification"  style="position: relative;border-style: solid; top:10%;left: 10%;width: 120px;height:20px;">Notifications</div>
+            <button class="report-page" type="button"  style="display:flex;position:inherit;border-style: solid; top:10%;left: 10%;width: 120px;height:20px;">Reports</button>
+            <button class="dashboard-page" type="button"  style="display:flex;position:inherit;border-style: solid; top:10%;left: 10%;width: 120px;height:20px;">Dashboard</button>
+            <button class="notification"  style="display:flex;position:inherit;border-style: solid; top:10%;right: 10%;width: 120px;height:20px;">Notifications</button>
         </div>
         <div class="body-main" style="display:flex;border-style: solid;width:auto">
             <div class="components" style="display:flex;border-style: solid; width: 30%;">
@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="insert-components" id="contentArea" style="display:flex;position:relative;width: 70%; border-style: solid;">
-            Blank
+            <div class="blank" style="position: inherit;left:45%;top:50%;">No group chosen</div>
             </div>
         </div>
         

@@ -52,43 +52,52 @@
 
     <input type="text" placeholder="Search..." @input="search">
 
-    <table id='books' class="hovering">
+    <table id='plans' class="hovering">
         <thead>
             <th> Plan Name </th>
             <th> Users </th>
             
             <th> Rating </th>
-            <th>Action</th>
+            
         </thead>
-        <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
-            <td>{{ book.title }}</td>
-            <td>{{ book.author }}</td>
+        <tr v-for="plan in list" v-bind:id="plan.ID" v-on:click="inspect">
+            <td>{{ plan.title }}</td>
+            <td>{{ plan.author }}</td>
             
             <td class="rating-stars">
-                {{ ('★'.repeat(Math.round(book.rating))+'☆☆☆☆☆').slice(0,5) }} ({{ book.numberOfReviews }})
+                {{ ('★'.repeat(Math.round(plan.rating))+'☆☆☆☆☆').slice(0,5) }} ({{ plan.numberOfReviews }})
             </td>
-            <td type="button">Edit</td>
+            <!-- <td class="actions" style="margin: 5px;" type="button">Edit</td>
+            <td  class="actions" style="margin: 5px;" type="button">Login</td> -->
             
         </tr>
     </table>
 
-    <div v-if="book">
-        <img v-bind:src="book.image" alt=""/>
+    <div v-if="plan">
+        <img v-bind:src="plan.image" alt=""/>
         <label style="text-align:right">
             <span class="succeeded"> {{ order.succeeded }} </span>
             <span class="failed"> {{ order.failed }} </span>
-            &nbsp;&nbsp; {{ book.stock }} in stock
+            &nbsp;&nbsp; {{ plan.stock }} in stock
         </label>
-        <form @submit.prevent="submitOrder" style="float:right; display:flex; flex-direction:row-reverse">
+
+        <form @submit.prevent="goPlan" style="float:right; display:flex; flex-direction:row-reverse">
             <input type="number" v-model="order.quantity" v-bind:class="{ failed: order.failed }" style="width:5em">
-            <input type="submit" value="Next" class="muted-button">
+            <input type="submit" value="Go to Plan" class="muted-button">
+            
         </form>
-        <h4> {{ book.title }} </h4>
+        <form @submit.prevent="editPlan" style="float:right; display:flex; flex-direction:row-reverse">
+            <input type="number" v-model="order.quantity" v-bind:class="{ failed: order.failed }" style="width:5em">
+            <input type="submit" value="Edit" class="muted-button">
+        </form>
+
+        
+        <h4> {{ plan.title }} </h4>
         <p>This is the plan for ......</p>
-        <p> {{ book.descr }} </p>
+        <p> {{ plan.descr }} </p>
     </div>
     <div v-else>
-        ( click on a row to see details... )
+        ( click on a row to choose a plan and go there... )
     </div>
 
 </div>

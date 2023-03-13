@@ -2,7 +2,9 @@ const cds = require('@sap/cds/lib')
 
 module.exports = class AdminService extends cds.ApplicationService { init(){
   this.before ('NEW','Authors', genid)
-  this.before ('NEW','Books', genid)
+  // this.before ('NEW','Books', genid)
+  this.before ('NEW','Plans', genid)
+  this.before ('NEW','Todos', genid)
   return super.init()
 }}
 

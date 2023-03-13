@@ -1,11 +1,35 @@
 using { Currency, managed, sap } from '@sap/cds/common';
 namespace sap.capire.bookshop;
 
-entity Books : managed {
+// entity Books : managed {
+//   key ID : Integer;
+//   title  : localized String(111);
+//   descr  : localized String(1111);
+//   author : Association to Authors;
+//   genre  : Association to Genres;
+//   stock  : Integer;
+//   price  : Decimal;
+//   currency : Currency;
+//   image : LargeBinary @Core.MediaType : 'image/png';
+// }
+
+entity Plans : managed {
   key ID : Integer;
   title  : localized String(111);
   descr  : localized String(1111);
   author : Association to Authors;
+  genre  : Association to Genres;
+  stock  : Integer;
+  price  : Decimal;
+  currency : Currency;
+  image : LargeBinary @Core.MediaType : 'image/png';
+}
+
+entity Todos : managed {
+  key ID : Integer;
+  title  : localized String(111);
+  descr  : localized String(1111);
+  author : Association to Author1;
   genre  : Association to Genres;
   stock  : Integer;
   price  : Decimal;
@@ -20,7 +44,18 @@ entity Authors : managed {
   dateOfDeath  : Date;
   placeOfBirth : String;
   placeOfDeath : String;
-  books  : Association to many Books on books.author = $self;
+  //books  : Association to many Books on books.author = $self;
+  plans  : Association to many Plans on plans.author = $self;
+}
+
+entity Author1 : managed {
+  key ID : Integer;
+  name   : String(111);
+  dateOfBirth  : Date;
+  dateOfDeath  : Date;
+  placeOfBirth : String;
+  placeOfDeath : String;
+  todos  : Association to many Todos on todos.author = $self;
 }
 
 /** Hierarchically organized Code List for Genres */
