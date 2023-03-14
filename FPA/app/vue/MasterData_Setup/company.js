@@ -3,7 +3,7 @@ const $ = sel => document.querySelector(sel)
 const GET = (url) => axios.get('/browse'+url)
 const POST = (cmd,data) => axios.post('/browse'+cmd,data)
 
-const companies = Vue.createApp ({
+const companies =  Vue.createApp ({
     
     data() {
       return {
