@@ -1,0 +1,60 @@
+.hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+
+.budget-title {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+#app{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.coa-create{
+    text-align: center;
+    display: block;
+    font-size: 25px;
+}
+.coa-create label{
+    text-align: center;
+    display: block;
+    font-size: 23px;
+}
+.add-account-button{
+    cursor: pointer;
+    float: right;
+    font-size: 25px;
+    width: 20%;
+    background-color: rgb(243, 145, 41);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
+}
+
+.coa-create input{
+    display: inline-block;
+    text-align: center;
+    font-size: 23px;
+    width: 20%;
+    background-color:  rgb(219, 189, 149);
+}
+
+.coa-already-account input{
+    width: 100%;
+    font-size: 20px;
+    background-color: antiquewhite;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 5px ;
+}
+
+.coa-already-account table{
+    width: 100%;
+
+    background-color: antiquewhite;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}

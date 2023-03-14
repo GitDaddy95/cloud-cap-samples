@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Plan Creation </title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="css/plancreation.css" /> 
+</head>
+
+<body class="small-container">
+<div id='app'>
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Master Data</button>
+            <div class="dropdown-content">
+              <a href="MasterData_Setup/Chart_of_Accounts.html">Chart of Accounts</a>
+              <a href="MasterData_Setup/Dimensions.html">Dimensions</a>
+              <a href="MasterData_Setup/Cost_Centers.html">Cost Centers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">User Setup</button>
+            <div class="dropdown-content">
+              <a href="MasterData_Setup/User_assign.html">User Assignment</a>
+              <a href="MasterData_Setup/User_permission.html">User Permission</a>
+            </div>
+        </div>
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn">Login</button>
+        </div>
+        
+
+    </div>
+        <!-- <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li> -->
+      <!-- </ul> -->
+
+    
+    <div class="budget-title">
+        <h1>Welcome to Budget Plus</h1>
+    </div>
+    <form class="user" @submit.prevent="login">
+        <div v-if="user">
+            <div v-if="user.tenant">Tenant: {{ user.tenant }}</div>
+            <div> User: {{ user.id }}</div>
+            <div>Locale: {{ user.locale }}</div>
+        </div>
+        <div v-else>
+            <input type="submit" value="Login" class="muted-button">
+            <!-- <a href="/user/login()">Login</a> -->
+        </div>
+    </form>
+    <form action="">
+    <div class="plan-create">
+        <h1>Plan Creation</h1>
+        <label>Plan Name : </label>   
+        <input type="text" placeholder="Enter Plan Name" name="planname" required>  
+        <label>Plan Start Date: </label>   
+        <input type="date" placeholder="Choose Start Date" name="startdate" required>
+        <label>Plan Date Length: </label>   
+        <select>
+            <option value="0">Select Length:</option>
+            <option value="1">1 Year</option>
+            <option value="2">2 Years</option>
+            <option value="3">3 Year</option>
+          </select>
+    </div> 
+    <input class="create-plan-button"type="submit" value="Create">
+    </form> 
+    <div class="already-plan">
+        <h1> Already have Plan </h1>
+
+        <input type="text" placeholder="Search..." @input="search">
+
+        <table id='plans' class="hovering">
+            <thead>
+                <th> Plan Name </th>
+                <th> Users </th>
+                
+                <th> Rating </th>
+                
+            </thead>
+            <tr v-for="plan in list" v-bind:id="plan.ID" v-on:click="inspect">
+                <td>{{ plan.title }}</td>
+                <td>{{ plan.author }}</td>
+                
+                <td class="rating-stars">
+                    {{ ('★'.repeat(Math.round(plan.rating))+'☆☆☆☆☆').slice(0,5) }} ({{ plan.numberOfReviews }})
+                </td>
+                <!-- <td class="actions" style="margin: 5px;" type="button">Edit</td>
+                <td  class="actions" style="margin: 5px;" type="button">Login</td> -->
+                
+            </tr>
+        </table>
+
+        <div v-if="plan">
+            
+            <form @submit.prevent="goPlan" style="float:right; display:flex; flex-direction:row-reverse">
+                <!-- <input type="number" v-model="order.quantity" v-bind:class="{ failed: order.failed }" style="width:5em"> -->
+                <input type="submit" value="Go to Plan" class="muted-button">
+            </form>
+            <form @submit.prevent="editPlan" style="float:right; display:flex; flex-direction:row-reverse">
+                <input type="submit" value="Edit" class="muted-button">
+            </form>
+
+            
+            <h4> {{ plan.title }} </h4>
+            <p> {{ plan.descr }} </p>
+        </div>
+        <div v-else>
+            ( click on a row to choose a plan and go there... )
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="app.js"></script>
+</html>

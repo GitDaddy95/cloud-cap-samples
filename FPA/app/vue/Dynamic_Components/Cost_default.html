@@ -1,0 +1,31 @@
+<div id="app"style="margin-left: 10%;">
+    <h1>Sales > Sales Group 1 > Cost 1</h1>
+    <p>This is for Cost 1 component............</p>
+    <form action="" style="margin-bottom: 5px;">
+        <div class="plan-create">
+            <label style="margin-bottom: 5px;">G/L Account : </label>   
+            <select v-model="selectedAccountName"  style="position: absolute; left:400px; width:120px; margin-bottom: 5px;">
+                <option  v-for="(account,index) in list" v-bind:id="account.ID" :value="account.accname">{{account.ID}}</option>
+              </select></br> </br>
+            <label style="margin-bottom: 5px;">G/L Account Name: </label>   
+            <input disabled style="position: absolute;border: 1px solid; left:400px; width:120px; margin-bottom: 5px;":value="selectedAccountName"></br>
+            <label style="margin-bottom: 5px;">Balance: </label>   
+            <input disabled style="position: absolute;border: 1px solid; left:400px; width:120px; margin-bottom: 5px;":value="{selectedAccountBalance}"></br>
+            <label style="margin-bottom: 5px;">Currency: </label>   
+            <input disabled style="position: absolute;border: 1px solid; left:400px; width:120px; margin-bottom: 5px;":value="{selectedAccountCurrency}"></br>
+            <label style="margin-bottom: 5px;">Description: </label>   
+            <input type="text" id="desctiption" name="name" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+            <inputtype="submit" value="Save">
+        </div> 
+        
+        </form>
+    <button id="loadTable" class="Cost_table_component.html">View Table</button>
+    
+</div>
+<script src="../MainPage/dyaccount.js"></script>
+<script>
+    $("#loadTable").click(function(){
+        var theClass = this.className;
+        $("#contentArea").load("../Dynamic_Components/"+ theClass);
+    });
+</script>

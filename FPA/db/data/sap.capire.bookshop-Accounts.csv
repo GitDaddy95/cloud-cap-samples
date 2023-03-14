@@ -1,0 +1,6 @@
+ID;accname;externalCode;lvl;balance;currency_code;genre_ID
+201;Sales;101;12;5000;GBP;11
+207;Operating Costs;107;11;1230000;GBP;11
+251;Office Costs;150;333;132300;USD;16
+252;Employee Costs;150;555;14599000;USD;15
+271;Human Resource;170;22;1500000;JPY;13

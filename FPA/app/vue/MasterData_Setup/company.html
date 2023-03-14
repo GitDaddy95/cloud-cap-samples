@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Company Creation </title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="../css/plancreation.css" /> 
+</head>
+
+<body class="small-container">
+<div id='app'>
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Master Data</button>
+            <div class="dropdown-content">
+              <a href="Chart_of_Accounts.html">Chart of Accounts</a>
+              <a href="Dimensions.html">Dimensions</a>
+              <a href="Cost_Centers.html">Cost Centers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">User Setup</button>
+            <div class="dropdown-content">
+              <a href="User_assign.html">User Assignment</a>
+              <a href="User_permission.html">User Permission</a>
+            </div>
+        </div>
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn">Login</button>
+        </div>
+        
+
+    </div>
+        <!-- <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li> -->
+      <!-- </ul> -->
+
+    
+    <div class="budget-title">
+        <h1>Welcome to Budget Plus</h1>
+    </div>
+    <form class="user" @submit.prevent="login">
+        <div v-if="user">
+            <div v-if="user.tenant">Tenant: {{ user.tenant }}</div>
+            <div> User: {{ user.id }}</div>
+            <div>Locale: {{ user.locale }}</div>
+        </div>
+        <div v-else>
+            <input type="submit" value="Login" class="muted-button">
+            <!-- <a href="/user/login()">Login</a> -->
+        </div>
+    </form>
+    <form action="">
+    <div class="plan-create">
+        <h1>Company Creation</h1>
+        <label>Company Name : </label>   
+        <input type="text" placeholder="Enter Company Name" name="companyname" required>  
+        <label>Company ID: </label>   
+        <input type="text" placeholder="Enter Company ID" name="comapnyid" required>
+    </div> 
+    <input class="create-plan-button"type="submit" value="Create">
+    </form> 
+    <div class="already-plan">
+        <h1> Already have Company </h1>
+
+        <input type="text" placeholder="Search..." @input="search">
+
+        <table id='company' class="hovering">
+            <thead>
+                <th> Comapny Name </th>
+                <th> Company ID </th>
+                <th> User_ID </th>
+            </thead>
+            <tr v-for="companies in list" v-bind:id="companies.ID" v-on:click="inspect">
+                <td>{{ companies.title }}</td>
+                <td>{{ companies.ID }}</td>
+                <td>{{ companies.author_ID }}</td>
+                <!-- <td class="actions" style="margin: 5px;" type="button">Edit</td>
+                <td  class="actions" style="margin: 5px;" type="button">Login</td> -->
+            </tr>
+        </table>
+        <div v-if="companies">
+            <form @submit.prevent="goCompany" style="float:right; display:flex; flex-direction:row-reverse">
+                <input type="submit" value="Go to Company" class="muted-button">
+            </form>
+            <h4> {{ companies.title }} </h4>
+            <p> {{ companies.descr }} </p>
+        </div>
+        <div v-else>
+            ( click on a row to choose a company and go there... )
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="company.js"></script>
+</html>

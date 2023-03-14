@@ -1,0 +1,4 @@
+ID;title;plan_ID;author_ID;currency_code;genre_ID;descr
+1;Vanguard MM;201;101;GBP;11;blah
+2;Vanguard BKK;251;107;GBP;11;blah
+6;Vanguard AU;271;150;GBP;16;blah

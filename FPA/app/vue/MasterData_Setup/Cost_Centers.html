@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Main Page </title>
+    <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="../css/costcenters.css" /> 
+    
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container">
+<div id='app'>
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn"><a href="#">Home</a></button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Master Data</button>
+            <div class="dropdown-content">
+              <a href="Chart_of_Accounts.html">Chart of Accounts</a>
+              <a href="#">Dimensions</a>
+              <a href="Cost_Centers.html">Cost Centers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">User Setup</button>
+            <div class="dropdown-content">
+              <a href="User_assign.html">User Assignment</a>
+              <a href="User_permission.html">User Permission</a>
+            </div>
+        </div>
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn">Login</button>
+        </div>
+        
+    
+    </div>
+    <div class="budget-title">
+        <h1>Setup Cost Centers</h1>
+    </div>
+
+    <div class="cc-create">
+
+            <form action="" style="margin-bottom: 5px;">
+                <h2>Cost Center 1</h2>
+                <div class="cost_center_1" style="margin-bottom: 15px;">
+                    <label style="margin-bottom: 5px;">Name: </label>   
+                    <input id="name_CC1"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Dimension: </label>   
+                    <select id="dimension_CC1" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;">
+                        <option>Dimension1</option>
+                        <option>Dimension2</option>
+                        <option>Dimension3</option>
+                        <option>Dimension4</option>
+                        <option>Dimension5</option>
+                    </select>
+                    </br>
+                    <label style="margin-bottom: 5px;">Active: </label>   
+                    <input id="active_CC1" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Owner: </label>   
+                    <input id="owner_CC1" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">Type: </label>   
+                    <input type="text" id="type_CC1" name="Type" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">From: </label>   
+                    <input type="date" id="date_from_CC1" name="date" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                    <label style="margin-bottom: 5px;">To: </label>   
+                    <input type="date" id="date_to_CC1" name="name" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br>
+                </div>
+                </form>
+</div>
+<div class="cc-already">
+                <h4>Cost Center List</h4>
+                <table id='costcenters' class="hovering"style="border-style: solid;width:100%">
+                  <thead >
+                      <th> Cost Centers </th>
+                      <th> Name </th>
+                      <th> Active </th>
+                      <th> Active From </th>
+                      <th> Active To </th>
+                      <th> Dimension </th>
+                  </thead>
+                  <tr v-for="(costcenters,index) in list" v-bind:id="costcenters.ID">
+                      <td> Cost Center {{index +1}}</td>
+                      <td>{{ costcenters.ccname  }}</td>
+                      <td>{{ costcenters.active  }}</td>
+                      <td>{{ costcenters.activeFrom }}</td>
+                      <td>{{ costcenters.activeTo }}</td>
+                      <td>{{ costcenters.dimension }}</td>
+                  </tr>
+                  
+              </table>
+              
+        </div>
+        <button><a href="./User_assign.html">Save</a></button>
+    </div> 
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="costcenter.js"></script>
+</html>

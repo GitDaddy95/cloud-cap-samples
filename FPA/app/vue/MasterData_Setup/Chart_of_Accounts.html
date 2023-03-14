@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Main Page </title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css"> -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="../css/coa.css" /> 
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+   
+</head>
+
+<body class="small-container">
+<div id='app'>
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn"><a href="#">Home</a></button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Master Data</button>
+            <div class="dropdown-content">
+              <a href="#">Chart of Accounts</a>
+              <a href="Dimensions.html">Dimensions</a>
+              <a href="Cost_Centers.html">Cost Centers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">User Setup</button>
+            <div class="dropdown-content">
+              <a href="User_assign.html">User Assignment</a>
+              <a href="User_permission.html">User Permission</a>
+            </div>
+        </div>
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn">Login</button>
+        </div>
+        
+
+    </div>
+    <div class="budget-title">
+        <h1>Setup Chart of Accounts</h1>
+    </div>
+    <div class="coa-create">
+            <form @submit.prevent="addTodo">
+                    <label >G/L Account code: </label>
+                    <input v-model="newTodo1" ></br>
+                    <!-- <input id="AccountCode"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+                    <label >Name: </label>  
+                    <input v-model="newTodo2" ></br>
+                    <!-- <input id="AccountName"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+                    <label >Balance: </label>
+                    <input v-model="newTodo3" ></br> 
+                    <!-- <input id="AccountBalance" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+                    <label >Currency: </label>   
+                    <input v-model="newTodo4" ></br> 
+                    <!-- <input id="AccountCurrency" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br> -->
+                    <label >Level: </label>
+                    <input v-model="newTodo5" ></br>
+                    <!-- <input type="text" id="AccountLevel" name="Type" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br> -->
+                    <label >External Code: </label>   
+                    <input v-model="newTodo6" ></br>
+                    <!-- <input type="text" id="AccountExCode" name="date" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br> -->
+                    <label >Postable: </label>  
+                    <input v-model="newTodo7" ></br> 
+                    <!-- <input type="text" id="AccountPost" name="name" minlength="4" maxlength="50" size="10" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br> --> 
+                <input class="add-account-button"type="submit" value="Create">
+            </form>
+            <!-- <button><a href="#">Add</a></button> -->
+        </div> 
+        
+        <div class="coa-already-account">
+            <input type="text" placeholder="Search..." @input="search">
+        <!-- <div class="ald-accounts" style="display:flex;border-style: solid;width:auto"> -->
+            <table id='account' class="hovering"style="border-style: solid;width:100%">
+                <thead >
+                    <th> G/L Account </th>
+                    <th> Name </th>
+                    <th >Balance</th>
+                    <th >Currency</th>
+                    <th >Level</th>
+                    <th >External Code</th>
+                    <th >Postable</th>
+                </thead>
+                <tr v-for="(account,index) in list" v-bind:id="account.ID" v-on:click="inspect">
+                    <td>{{ account.ID  }}</td>
+                    <td>{{ account.accname }}</td>
+                    <td>{{ account.balance }}</td>
+                    <td>{{ account.currency_code }}</td>
+                    <td>{{ account.lvl }}</td>
+                    <td>{{ account.externalCode}}</td>
+                    <td>{{ account.genre_ID }}<button @click="removeTodo(account.ID, index)">Delete</button></td>  
+                </tr>
+                
+            </table>
+            
+            <button ><a href="./Dimensions.html">Next</a></button>
+        </div>
+        
+    </div>      
+<!-- </div> -->
+</body>
+<script src="account.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>
+    thead{
+        border-bottom: 4px solid #221e1e;
+    }
+    td {
+        display: table-cell;
+        vertical-align: inherit;    
+        border: 1px solid #fff;
+        text-align: center;
+    }
+</style>
+</html>

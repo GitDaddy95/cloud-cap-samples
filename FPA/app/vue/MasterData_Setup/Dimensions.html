@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Main Page </title>
+    <!--<link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="../css/dimension.css" /> 
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container">
+<div id='app'>
+  <div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn"><a href="#">Home</a></button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Master Data</button>
+        <div class="dropdown-content">
+          <a href="Chart_of_Accounts.html">Chart of Accounts</a>
+          <a href="#">Dimensions</a>
+          <a href="Cost_Centers.html">Cost Centers</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">User Setup</button>
+        <div class="dropdown-content">
+          <a href="User_assign.html">User Assignment</a>
+          <a href="User_permission.html">User Permission</a>
+        </div>
+    </div>
+    <div class="dropdown" style="float:right;">
+        <button class="dropbtn">Login</button>
+    </div>
+    
+
+</div>
+    <div class="budget-title">
+        <h1>Setup Dimensions</h1>
+    </div>
+    <div class="dimension-create">
+      <form @submit.prevent="addTodo">
+              <label >Dimensions: </label>
+              <input v-model="newTodo1" ></br>
+              <!-- <input id="AccountCode"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+              <label >Active: </label>  
+              <input id="Switch 1" type="checkbox">
+              <span class="slider round"></span></br>
+              <!-- <input id="AccountName"style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+              <label >Description: </label>
+              <input v-model="newTodo3" ></br> 
+              <!-- <input id="AccountBalance" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"> -->
+              <label >Active From: </label>   
+              <input type="date"v-model="newTodo4" ></br> 
+              <!-- <input id="AccountCurrency" style="position: absolute; left:400px; width:120px; margin-bottom: 5px;"></br> -->
+              <label >Active To: </label>
+              <input type="date" v-model="newTodo5" ></br>
+              
+          <input class="add-account-button"type="submit" value="Create">
+      </form>
+      <!-- <button><a href="#">Add</a></button> -->
+  </div> 
+    <div class="dimension-already">
+        
+        
+        <h4>Dimension List</h4>
+        <table id='dimensions' class="hovering"style="border-style: solid;width:100%">
+          <thead >
+              <th> Name </th>
+              <th> Description</th>
+              <th> Active </th>
+              <th> Active From </th>
+              <th> Active To </th>
+          </thead>
+          <tr v-for="(dimensions,index) in list" v-bind:id="dimensions.ID">
+              <td>Dimension {{index +1}}</td>
+              <td>{{ dimensions.descr  }}</td>
+              <td>{{ dimensions.active  }}</td>
+              <td>{{ dimensions.activeFrom }}</td>
+              <td>{{ dimensions.activeTo }}</td>
+          </tr>
+          
+      </table>
+      <form @submit.prevent="editPlan" style="float:right; display:flex; flex-direction:row-reverse">
+        <input type="submit" value="Edit" class="muted-button">
+    </form>
+        <button><a href="./Cost_Centers.html">Next</a></button>
+    </div> 
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="dimension.js"></script>
+</html>

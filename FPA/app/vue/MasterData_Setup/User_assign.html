@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Plus | Plan Creation </title>
+    <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <style>
+        .hovering tr:hover td { color:cyan; background: #123; cursor: pointer; }
+        .rating-stars { color:teal }
+        .succeeded { color:teal }
+        .failed { color:red }
+        .user {text-align: end; color: grey;}
+    </style>
+</head>
+
+<body class="small-container", style="margin-top: 70px;">
+<div id='app'>
+    <div class="Budget-Title">
+        <h1>Welcome to Budget Plus</h1>
+    </div>
+    <form action="">
+    <div class="plan-create">
+        <h1>User Assignment</h1>
+        <label>Add User : </label>   
+        <input type="text" placeholder="Enter User Name" name="planname" required>  
+        <label>Add User Password: </label>   
+        <input type="text" placeholder="Enter User Password" required>
+        <label>Add User Role: </label>   
+        <select>
+            <option value="0">Select Role</option>
+            <option value="1">Normal</option>
+            <option value="2">Administrator</option>
+          </select>
+    </div> 
+    <input type="submit" value="Create">
+    </form> 
+    <h1> Assign User  </h1>
+
+    <input type="text" placeholder="Search..." @input="search">
+
+    <table id='books' class="hovering">
+        <thead>
+            <th> User </th>
+            <th> Role </th>
+            <th >Action</th>
+        </thead>
+        <tr v-for="book in list" v-bind:id="book.ID" v-on:click="inspect">
+            <td>Hein</td>
+            <td>Administrator</td>
+            <td><a href="./User_permission.html">Edit</a></td>
+        </tr>
+    </table>
+
+    <div v-if="book">
+        <form @submit.prevent="submitOrder" style="float:right; display:flex; flex-direction:row-reverse">
+            <a type="submit" value="Next" href="../MainPage/main.html" class="muted-button">Next</a>
+        </form>
+
+    </div>
+
+</div>
+</body>
+
+<script src="app.js"></script>
+</html>
